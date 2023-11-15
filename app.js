@@ -1,5 +1,5 @@
 const socket = io('https://msg-alem.vercel.app/', {
-    transports: ['websocket', 'polling'],
+    transports: ['polling'],
 });
 
 function sendMessage() {
