@@ -1,4 +1,4 @@
-const socket = io('https://msg-zeta.vercel.app/');
+const socket = io('https://msg-alem.vercel.app/');
 
 function sendMessage() {
     var messageInput = document.getElementById('messageInput');
