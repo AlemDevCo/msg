@@ -17,7 +17,7 @@ function sendMessage() {
                 if (data.success) {
                     messageInput.value = '';
                 } else {
-                    console.error('Failed to send message');
+                    console.error('Failed to send message:', data.error);
                 }
             })
             .catch((error) => console.error('Error:', error));
