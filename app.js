@@ -1,5 +1,6 @@
-// Place your Socket.IO connection code here
-const socket = io('https://msg-alem.vercel.app/');
+const socket = io('https://msg-alem.vercel.app/', {
+    transports: ['websocket', 'polling'],
+});
 
 function sendMessage() {
     var messageInput = document.getElementById('messageInput');
