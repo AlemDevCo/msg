@@ -1,23 +1,26 @@
+// Place your Socket.IO connection code here
 const socket = io('https://msg-alem.vercel.app/');
 
 function sendMessage() {
     var messageInput = document.getElementById('messageInput');
     var message = messageInput.value;
 
-    console.log('Sending message:', message);
-
     if (message.trim() !== '') {
         fetch('/api/message', {
             method: 'POST',
-@@ -14,6 +14,7 @@ function sendMessage() {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message }),
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log('Response:', data);
                 if (data.success) {
                     messageInput.value = '';
                 } else {
-@@ -23,17 +24,3 @@ function sendMessage() {
+                    console.error('Failed to send message:', data.error);
+                }
+            })
             .catch((error) => console.error('Error:', error));
     }
 }
